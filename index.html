@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEL KODAM BY: ROBET</title>
+    <style>
+        body {
+            background: url('https://f.top4top.io/p_3331hgjwz0.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            display: inline-block;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cek Kodam Anda</h1>
+        <p>Masukkan nama Anda untuk mengetahui Kodam Anda:</p>
+        <input type="text" id="nama" placeholder="Masukkan nama Anda">
+        <button onclick="cekKodam()">Lihat Kodam</button>
+        <p id="result"></p>
+        <audio id="musik" src="https://b.top4top.io/m_333124k3b4.mp4"></audio>
+    </div>
+
+    <script>
+        function cekKodam() {
+            const nama = document.getElementById("nama").value;
+            if (!nama) {
+                document.getElementById("result").textContent = "Silakan masukkan nama!";
+                return;
+            }
+
+            
+            const kodamList = [
+                "Macan Putih",
+                "Naga Emas",
+                "Harimau Hitam",
+                "Elang Perkasa",
+                "Banteng Hitam",
+                "Kuda Sakti",
+                "Buaya Putih",
+                "Kera Sakti",
+                "Garuda Merah",
+                "Singa Api",
+                "Kipas angin",
+                "Kosmos",
+                "Kadal belang",
+                "Bunglon",
+                "Toke",
+                "Belut",
+                "Kunti Botak",
+                "Tuyul Gondrong",
+                "Gendrwo belang",
+                "Kosong jir ",
+                "pacul",
+                "sendok",
+                "arit",
+                "keong",
+                "kucing olab",
+                "meong kuru",
+                "macan ompong",
+                
+              
+            
+            ];
+
+            // Pilih Kodam acak dari daftar
+            const kodam = kodamList[Math.floor(Math.random() * kodamList.length)];
+            const hasil = `Kodam ${nama} adalah, ${kodam}`;
+            document.getElementById("result").textContent = hasil;
+
+            // Mainkan musik
+            const musik = document.getElementById("musik");
+            musik.play();
+        }
+    </script>
+</body>
+</html>

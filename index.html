@@ -2,104 +2,131 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEK KODAM BY: ROBET</title>
+    <title>Surat untuk kamu sayang</title>
     <style>
         body {
-            background: url('https://f.top4top.io/p_3331hgjwz0.jpg') no-repeat center center fixed;
-            background-size: cover;
+            background: url('https://l.top4top.io/p_33537nc5f0.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
             font-family: Arial, sans-serif;
             color: white;
-            text-align: center;
+            overflow: hidden;
         }
         .container {
-            margin-top: 20%;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            display: inline-block;
+            position: relative;
+            width: 250px;
+            height: 180px;
         }
-        input[type="text"] {
+        .amplop {
+            width: 250px;
+            height: 210px;
+            background: url('https://f.top4top.io/p_3353wv8f30.png') no-repeat center center/cover;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            z-index: 2;
+        }
+        .amplop img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: absolute;
+            top: 10px;
+        }
+        .surat {
+            width: 180px;
+            height: 100px;
+            background: white;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: block;
             padding: 10px;
-            font-size: 16px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
             border-radius: 5px;
-            border: none;
-            outline: none;
+            color: black;
+            z-index: 1;
+            opacity: 0;
+            transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+        }
+        .tombol {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
         button {
             padding: 10px 20px;
-            font-size: 16px;
-            color: white;
-            background-color: #007BFF;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
-            margin-top: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .buka {
+            background: #27ae60;
+            color: white;
+        }
+        .tidak {
+            background: #e74c3c;
+            color: white;
+            position: relative;
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>Cek Kodam Anda</h1>
-        <p>Masukkan nama Anda untuk mengetahui Kodam Anda:</p>
-        <input type="text" id="nama" placeholder="Masukkan nama Anda">
-        <button onclick="cekKodam()">Lihat Kodam</button>
-        <p id="result"></p>
-        <audio id="musik" src="https://b.top4top.io/m_333124k3b4.mp4"></audio>
+        <div class="surat" id="surat">
+            <p>sayang mf yh kalu aku
+            ngeselin. suka marah" aslinya
+            aku kangen 
+           <p>
+             
+           </p> LOVE YOU SAYANG!</p>
+        </div>
+        <div class="amplop" onclick="bukaSurat()">
+            <img src="https://b.top4top.io/p_33538l0ty0.jpg" alt="Foto Kamu">
+        </div>
     </div>
 
+    <div class="tombol">
+        <button class="buka" onclick="bukaSurat()">Buka</button>
+        <button class="tidak" id="tidakBtn" onclick="pindahTombol()">Tidak</button>
+    </div>
+
+    <audio autoplay loop>
+        <source src="https://f.top4top.io/m_3353ttz1z2.mp4" type="audio/mpeg">
+    </audio>
+
     <script>
-        function cekKodam() {
-            const nama = document.getElementById("nama").value;
-            if (!nama) {
-                document.getElementById("result").textContent = "Silakan masukkan nama!";
-                return;
-            }
+        function bukaSurat() {
+            let surat = document.getElementById('surat');
+            surat.style.opacity = '1';
+            surat.style.transform = 'translate(-50%, -150%)'; // Surat naik keluar dari amplop
+        }
 
-            
-            const kodamList = [
-                "Macan Putih",
-                "Naga Emas",
-                "Harimau Hitam",
-                "Elang Perkasa",
-                "Banteng Hitam",
-                "Kuda Sakti",
-                "Buaya Putih",
-                "Kera Sakti",
-                "Garuda Merah",
-                "Singa Api",
-                "Kipas angin",
-                "Kosmos",
-                "Kadal belang",
-                "Bunglon",
-                "Toke",
-                "Belut",
-                "Kunti Botak",
-                "Tuyul Gondrong",
-                "Gendrwo belang",
-                "Kosong jir ",
-                "pacul",
-                "sendok",
-                "arit",
-                "keong",
-                "kucing olab",
-                "meong kuru",
-                "macan ompong",
-                
-              
-            
-            ];
-
-            // Pilih Kodam acak dari daftar
-            const kodam = kodamList[Math.floor(Math.random() * kodamList.length)];
-            const hasil = `Kodam ${nama} adalah, ${kodam}`;
-            document.getElementById("result").textContent = hasil;
-
-            // Mainkan musik
-            const musik = document.getElementById("musik");
-            musik.play();
+        function pindahTombol() {
+            let btn = document.getElementById('tidakBtn');
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            btn.style.position = 'absolute';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
         }
     </script>
+
 </body>
 </html>
